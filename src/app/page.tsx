@@ -2,12 +2,12 @@ import Education from '@/components/Education/Education';
 import Experience from '@/components/Experience/Experience';
 import Portfolio from '@/components/Portfolio/Portfolio';
 import ProfileHeader from '@/components/ProfileHeader/ProfileHeader';
-import Image from 'next/image';
+import Resume from '@/components/Resume/Resume';
 
 export default function Home() {
     return (
         <main>
-            <div>
+            <div className=''>
                 <ProfileHeader />
             </div>
             <div>
@@ -18,6 +18,9 @@ export default function Home() {
             </div>
             <div>
                 <Portfolio />
+            </div>
+            <div>
+                <Resume />
             </div>
         </main>
     );

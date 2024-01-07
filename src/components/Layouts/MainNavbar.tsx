@@ -15,6 +15,8 @@ export default function MainNavbar() {
                             img={'/myImage.jpeg'}
                             alt={profileConstant.shortName}
                             rounded
+                            bordered
+                            color={'light'}
                         />
                     </div>
                     <p className="text-xl font-semibold">
