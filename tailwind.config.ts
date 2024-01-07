@@ -61,6 +61,8 @@ const config: Config = {
                     'linear-gradient(145deg, #1e2024, #23272b)',
                 'primary-pink': 'var(--primary-pink)',
                 'primary-dark-gradient': 'var(--background)',
+                'progress-gradient-light': 'linear-gradient(145deg, #fff 0%, #ff014f 100%)',
+                'progress-gradient-dark': 'linear-gradient(145deg, #f02981 0%, #c81901 100%)',
             },
             borderRadius: {
                 lg: 'var(--radius)',

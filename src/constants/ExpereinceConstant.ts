@@ -10,7 +10,19 @@ export const ExperienceConstant: IExpereince = {
             image: '/saurashtra_university.jpg',
             websiteLink: 'https://saurashtrauniversity.edu/',
             startYear: 2022,
+            startMonth: 'January',
             endYear: 2023,
+            endMonth: 'April',
+            description: [
+                'Contributed to the development of key modules such as Sale, Purchase, Inventory, and Point of Sale, andimplemented third-party integrations with Odoo, including WooCommerce and Shopify.',
+            ],
+            techologyList: [
+                'Next.js',
+                'JavaScript',
+                'React.js',
+                'Python',
+                'TypeScript',
+            ],
         },
         {
             role: 'Fronted Developer (React and Next.js)',
@@ -18,7 +30,19 @@ export const ExperienceConstant: IExpereince = {
             image: '/saurashtra_university.jpg',
             websiteLink: 'https://saurashtrauniversity.edu/',
             startYear: 2022,
+            startMonth: 'January',
             endYear: 2023,
+            endMonth: 'April',
+            description: [
+                'Contributed to the development of key modules such as Sale, Purchase, Inventory, and Point of Sale, andimplemented third-party integrations with Odoo, including WooCommerce and Shopify.',
+            ],
+            techologyList: [
+                'Next.js',
+                'JavaScript',
+                'React.js',
+                'Python',
+                'TypeScript',
+            ],
         },
         {
             role: 'Fronted Developer (React and Next.js)',
@@ -26,7 +50,19 @@ export const ExperienceConstant: IExpereince = {
             image: '/saurashtra_university.jpg',
             websiteLink: 'https://saurashtrauniversity.edu/',
             startYear: 2022,
+            startMonth: 'January',
             endYear: 2023,
+            endMonth: 'April',
+            description: [
+                'Contributed to the development of key modules such as Sale, Purchase, Inventory, and Point of Sale, andimplemented third-party integrations with Odoo, including WooCommerce and Shopify.',
+            ],
+            techologyList: [
+                'Next.js',
+                'JavaScript',
+                'React.js',
+                'Python',
+                'TypeScript',
+            ],
         },
     ],
 };

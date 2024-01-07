@@ -9,6 +9,10 @@ export interface IExpereinceItem {
     company: string;
     image: string;
     startYear: number;
+    startMonth: string;
     endYear: number | string;
+    endMonth: string;
     websiteLink: string;
+    description: string[];
+    techologyList: string[];
 }

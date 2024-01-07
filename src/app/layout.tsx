@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
-import { ThemeModeScript } from 'flowbite-react';
+import { Flowbite, ThemeModeScript } from 'flowbite-react';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import MainNavbar from '@/components/Layouts/MainNavbar';
+import flowbiteTheme from '../../flowbite-theme';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -22,8 +23,10 @@ export default function RootLayout({
                 <ThemeModeScript />
             </head>
             <body className={inter.className}>
-                <MainNavbar />
-                {children}
+                <Flowbite theme={{theme: flowbiteTheme}}>
+                    <MainNavbar />
+                    {children}
+                </Flowbite>
             </body>
         </html>
     );
