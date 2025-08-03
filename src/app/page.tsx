@@ -4,6 +4,7 @@ import { ExperienceSection } from "@/components/shared/experience/ExperienceSect
 import { PortfolioSection } from "@/components/shared/portfolio/PortfolioSection";
 import { ProfileCard } from "@/components/shared/profile/ProfileCard";
 import { ResumeSection } from "@/components/shared/resume/ResumeSection";
+import { TestimonialSection } from "@/components/shared/testimonial/TestimonialSection";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <EducationSection />
       <ResumeSection />
       <PortfolioSection />
+      <TestimonialSection />
       <ContactSection />
     </section>
   );
