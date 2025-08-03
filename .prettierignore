@@ -1,0 +1,10 @@
+.next
+node_modules
+dist
+public
+build
+coverage
+
+# Ignore ShadCN UI components
+src/components/ui
+components/ui

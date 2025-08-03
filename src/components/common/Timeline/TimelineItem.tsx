@@ -3,19 +3,19 @@
 import { TimelineItemProps } from './timelineTypes';
 
 export const TimelineItem = ({ yearRange, content }: TimelineItemProps) => {
-  return (
-    <div className="relative pb-10 flex flex-col md:flex-row md:items-start">
-      {/* Dot */}
-      <div className="hidden md:block absolute left-5 top-4 w-3 h-3 rounded-full bg-primary z-10" />
+    return (
+        <div className="relative flex flex-col pb-10 md:flex-row md:items-start">
+            {/* Dot */}
+            <div className="bg-primary absolute top-4 left-5 z-10 hidden h-3 w-3 rounded-full md:block" />
 
-      {/* Horizontal line from dot to card */}
-      <div className="hidden md:block absolute left-5 top-[22px] w-[40px] h-1 timeline-color z-0" />
+            {/* Horizontal line from dot to card */}
+            <div className="timeline-color absolute top-[22px] left-5 z-0 hidden h-1 w-[40px] md:block" />
 
-      {/* Card */}
-      <div className="md:ml-[60px] rounded-xl bg-background shadow-sm border p-5 sm:p-6 w-full relative">
-        <span className="text-sm font-medium text-primary">{yearRange}</span>
-        <div className="mt-2">{content}</div>
-      </div>
-    </div>
-  );
+            {/* Card */}
+            <div className="bg-background relative w-full rounded-xl border p-5 shadow-sm sm:p-6 md:ml-[60px]">
+                <span className="text-primary text-sm font-medium">{yearRange}</span>
+                <div className="mt-2">{content}</div>
+            </div>
+        </div>
+    );
 };
