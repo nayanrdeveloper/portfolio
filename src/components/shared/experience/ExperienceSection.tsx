@@ -6,7 +6,7 @@ export const ExperienceSection = () => {
     return (
         <section className="py-16">
             <div className="mx-auto max-w-5xl px-4">
-                <SectionHeader title="My Experience" subtitle="Over 10 Years of Experience" />
+                <SectionHeader title="My Experience" subtitle="Over 5 Years of Experience" />
 
                 <div className="space-y-6">
                     {EXPERIENCES.map((exp) => (

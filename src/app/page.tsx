@@ -1,3 +1,4 @@
+import { WelcomeToast } from '@/components/common/WelcomeToast';
 import { ContactSection } from '@/components/shared/contact';
 import { EducationSection } from '@/components/shared/education/EducationSection';
 import { ExperienceSection } from '@/components/shared/experience/ExperienceSection';
@@ -9,6 +10,7 @@ import { TestimonialSection } from '@/components/shared/testimonial/TestimonialS
 export default function Home() {
     return (
         <section>
+            <WelcomeToast />
             <ProfileCard />
             <ExperienceSection />
             <EducationSection />

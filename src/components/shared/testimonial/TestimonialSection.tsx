@@ -9,6 +9,7 @@ import {
 } from '@/components/ui/carousel';
 import { TestimonialCard } from './TestimonialCard';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ComingSoon } from '@/components/common/ComingSoon';
 
 const testimonials = [
     {
@@ -68,7 +69,11 @@ export const TestimonialSection = () => {
                 <h2 className="text-3xl font-bold md:text-4xl">Testimonial</h2>
             </div>
 
-            <div className="relative mx-auto w-full max-w-5xl">
+            <ComingSoon
+                title="Testimonials Coming Soon"
+                message="Great things take time! Soon you will find words from colleagues, mentors, and collaborators sharing their experiences working with me — real voices, real impact."
+            />
+            {/* <div className="relative mx-auto w-full max-w-5xl">
                 <Carousel className="w-full">
                     <CarouselContent>
                         {testimonials.map((testimonial, index) => (
@@ -78,7 +83,6 @@ export const TestimonialSection = () => {
                         ))}
                     </CarouselContent>
 
-                    {/* 👇 Arrows visible always (or only on hover with group-hover) */}
                     <CarouselPrevious className="bg-background card-shadow absolute top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-md transition hover:scale-105">
                         <ArrowLeft className="h-5 w-5 text-pink-500" />
                     </CarouselPrevious>
@@ -86,7 +90,7 @@ export const TestimonialSection = () => {
                         <ArrowRight className="h-5 w-5 text-pink-500" />
                     </CarouselNext>
                 </Carousel>
-            </div>
+            </div> */}
         </section>
     );
 };

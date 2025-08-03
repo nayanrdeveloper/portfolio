@@ -15,13 +15,13 @@ export const Navbar = () => {
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2 text-xl font-bold">
                     <Image
-                        src="/user.jpg"
+                        src="/profile_pic2.jpg"
                         alt="Logo"
                         width={35}
                         height={35}
                         className="rounded-full"
                     />
-                    <span className="text-foreground">INBIO</span>
+                    <span className="text-foreground">NAYAN</span>
                 </Link>
 
                 {/* Center nav */}
