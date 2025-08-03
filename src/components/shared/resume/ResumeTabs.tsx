@@ -2,15 +2,36 @@
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import EducationTimelineSection from './EducationTimelineSection';
+import { cn } from '@/lib/utils';
+import ProfessionalSkillsSection from './ProfessionalSkillsSection';
+
+export const resumeTabTriggers = [
+  { value: 'education', label: 'Education' },
+  { value: 'skills', label: 'Professional Skills' },
+  { value: 'experience', label: 'Experience' },
+  { value: 'interview', label: 'Interview' },
+];
+
 
 export const ResumeTabs = () => {
   return (
-    <Tabs defaultValue="education" className="w-full max-w-5xl mx-auto">
-      <TabsList className="grid grid-cols-2 md:grid-cols-4 w-full mb-6">
-        <TabsTrigger value="education">Education</TabsTrigger>
-        <TabsTrigger value="skills">Professional Skills</TabsTrigger>
-        <TabsTrigger value="experience">Experience</TabsTrigger>
-        <TabsTrigger value="interview">Interview</TabsTrigger>
+    <Tabs defaultValue="education" className="w-full max-w-6xl mx-auto">
+      <TabsList className="w-full h-full grid grid-cols-2 md:grid-cols-4 gap-2 p-1  rounded-full bg-background card-shadow mb-6">
+        {resumeTabTriggers.map(({ label, value }) => (
+          <TabsTrigger
+            key={value}
+            value={value}
+            className={cn(
+              'rounded-full py-2 text-sm font-semibold transition-all',
+              'data-[state=active]:bg-background',
+              'data-[state=active]:text-pink-600',
+              'data-[state=active]:shadow-md',
+              'hover:bg-muted/30'
+            )}
+          >
+            {label}
+          </TabsTrigger>
+        ))}
       </TabsList>
 
       <TabsContent value="education">
@@ -19,9 +40,9 @@ export const ResumeTabs = () => {
       </TabsContent>
 
       <TabsContent value="skills">
-        <div className="text-muted-foreground text-center py-8">
-          Professional Skills content coming soon...
-        </div>
+        <TabsContent value="skills">
+  <ProfessionalSkillsSection />
+</TabsContent>
       </TabsContent>
 
       <TabsContent value="experience">
