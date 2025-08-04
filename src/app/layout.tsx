@@ -5,6 +5,7 @@ import { MainWrapper } from '@/components/layout/MainWrapper';
 import { Footer } from '@/components/layout/Footer/Footer';
 import { ThemeProvider } from './providers/ThemeProvider';
 import { Toaster } from '@/components/ui/sonner'; // from ShadCN setu
+import { CustomCursor } from '@/components/common/CustomCursor';
 
 export const metadata: Metadata = {
     title: 'Portfolio | Nayan',
@@ -20,6 +21,7 @@ export default function RootLayout({
         <html lang="en">
             <body className="bg-background text-foreground">
                 <ThemeProvider>
+                    <CustomCursor />
                     <Navbar />
                     <MainWrapper>{children}</MainWrapper>
                     <Footer />
