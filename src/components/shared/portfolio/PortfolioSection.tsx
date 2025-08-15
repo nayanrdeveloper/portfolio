@@ -1,65 +1,21 @@
 'use client';
 
-// import { PortfolioItem } from './portfolioCardType';
-// import { PortfolioCard } from './PortfolioCard';
+import { useEffect, useState } from 'react';
+import { HygraphProjectCard, PortfolioCard } from './PortfolioCard';
+import { PortfolioModal } from './ProjectModal';
 import { SectionHeader } from '@/components/common/SectionHeader';
-import { ComingSoon } from '@/components/common/ComingSoon';
+import { getProjectCards } from '@/lib/hygraph/projects';
 
-// const mockData: PortfolioItem[] = [
-//     {
-//         id: '1',
-//         title: 'NFT Dashboard Application Development.',
-//         type: 'gallery',
-//         image: '/intimetec.jpg',
-//         category: 'Gallery',
-//         views: 1581,
-//     },
-//     {
-//         id: '2',
-//         title: 'Travel App Design Creativity & Application.',
-//         type: 'external',
-//         image: '/intimetec.jpg',
-//         category: 'External Link',
-//         views: 749,
-//         externalUrl: 'https://example.com',
-//     },
-//     {
-//         id: '3',
-//         title: 'NFT Dashboard Application Development.',
-//         type: 'gallery',
-//         image: '/intimetec.jpg',
-//         category: 'Gallery',
-//         views: 1581,
-//     },
-//     {
-//         id: '4',
-//         title: 'Travel App Design Creativity & Application.',
-//         type: 'external',
-//         image: '/intimetec.jpg',
-//         category: 'External Link',
-//         views: 749,
-//         externalUrl: 'https://example.com',
-//     },
-//     {
-//         id: '5',
-//         title: 'NFT Dashboard Application Development.',
-//         type: 'gallery',
-//         image: '/intimetec.jpg',
-//         category: 'Gallery',
-//         views: 1581,
-//     },
-//     {
-//         id: '6',
-//         title: 'Travel App Design Creativity & Application.',
-//         type: 'external',
-//         image: '/intimetec.jpg',
-//         category: 'External Link',
-//         views: 749,
-//         externalUrl: 'https://example.com',
-//     },
-// ];
 
 export const PortfolioSection = () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const [selectedProject, setSelectedProject] = useState<any>(null);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const [items, setItems] = useState<any>([]);
+    useEffect(() => {
+        getProjectCards().then(setItems).catch(console.error);
+    }, []);
+
     return (
         <section className="py-16">
             <div className="mx-auto max-w-5xl px-4">
@@ -67,15 +23,20 @@ export const PortfolioSection = () => {
                     title="My Portfolio"
                     subtitle="Visit my portfolio and keep your feedback"
                 />
-                <ComingSoon
-                    title="Projects Coming Soon"
-                    message="Working on awesome case studies and real-world builds. Stay tuned!"
-                />
-                {/* <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                    {mockData.map((item) => (
-                        <PortfolioCard key={item.id} item={item} />
+
+                <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                    {items.map((item: HygraphProjectCard) => (
+                        <div key={item.id} className="cursor-pointer">
+                            <PortfolioCard item={item} setSelectedProject={setSelectedProject} />
+                        </div>
                     ))}
-                </div> */}
+                </div>
+
+                <PortfolioModal
+                    isOpen={!!selectedProject}
+                    onClose={() => setSelectedProject(null)}
+                    slug={selectedProject}
+                />
             </div>
         </section>
     );

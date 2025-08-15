@@ -1,60 +1,52 @@
 'use client';
 
-import { PortfolioItem } from './portfolioCardType';
 import { Card, CardContent } from '@/components/ui/card';
-import { Eye, ExternalLink, GalleryHorizontal } from 'lucide-react';
 import Image from 'next/image';
 
+export type HygraphProjectCard = {
+    id: string;
+    title: string;
+    slug: string;
+    mainImage?: { url: string; width?: number; height?: number } | null;
+};
+
 interface Props {
-    item: PortfolioItem;
+    item: HygraphProjectCard;
+    setSelectedProject: (slug: string) => void;
 }
 
-export const PortfolioCard = ({ item }: Props) => {
-    const isExternal = item.type === 'external';
-    const isGallery = item.type === 'gallery';
+export const PortfolioCard = ({ item, setSelectedProject }: Props) => {
+    const img = item.mainImage;
 
     return (
-        <Card className="bg-background card-shadow h-full transition-all hover:shadow-md">
-            <CardContent className="relative p-4">
-                {/* Top Right Icons */}
-                {isExternal && (
-                    <a
-                        href={item.externalUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground absolute top-5 right-5 hover:text-pink-500"
-                    >
-                        <ExternalLink className="h-4 w-4" />
-                    </a>
-                )}
-
-                {isGallery && (
-                    <div className="text-muted-foreground absolute top-5 right-5">
-                        <GalleryHorizontal className="h-4 w-4" />
+        <div className="block h-full">
+            <Card
+                className="bg-background card-shadow h-full transition-all hover:shadow-md"
+                onClick={() => setSelectedProject(item.slug)}
+            >
+                <CardContent className="p-4">
+                    {/* Thumbnail */}
+                    <div className="relative mb-3 aspect-[16/10] w-full overflow-hidden rounded-md">
+                        {img?.url ? (
+                            <Image
+                                src={img.url}
+                                alt={item.title}
+                                fill
+                                className="object-cover"
+                                sizes="(min-width: 1024px) 33vw, 100vw"
+                                priority={false}
+                            />
+                        ) : (
+                            <div className="bg-muted text-muted-foreground flex h-full w-full items-center justify-center rounded-md text-xs">
+                                No image
+                            </div>
+                        )}
                     </div>
-                )}
 
-                {/* Thumbnail */}
-                <Image
-                    src={item.image}
-                    alt={item.title}
-                    width={600}
-                    height={400}
-                    className="h-[250px] w-full rounded-md object-cover"
-                />
-
-                {/* Meta Info */}
-                <div className="text-muted-foreground mt-2 flex items-center justify-between text-xs">
-                    <span className="font-semibold text-pink-500 uppercase">{item.category}</span>
-                    <span className="flex items-center gap-1">
-                        <Eye className="h-4 w-4" />
-                        {item.views}
-                    </span>
-                </div>
-
-                {/* Title */}
-                <h3 className="mt-2 text-lg font-semibold">{item.title}</h3>
-            </CardContent>
-        </Card>
+                    {/* Title */}
+                    <h3 className="line-clamp-2 text-lg font-semibold">{item.title}</h3>
+                </CardContent>
+            </Card>
+        </div>
     );
 };

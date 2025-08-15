@@ -10,6 +10,7 @@ import {
 import { TestimonialCard } from './TestimonialCard';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { ComingSoon } from '@/components/common/ComingSoon';
+import { SectionHeader } from '@/components/common/SectionHeader';
 
 const testimonials = [
     {
@@ -62,13 +63,7 @@ const testimonials = [
 export const TestimonialSection = () => {
     return (
         <section className="py-10 md:py-16 lg:py-20">
-            <div className="mb-8 text-center">
-                <p className="text-sm font-medium tracking-wider text-pink-500 uppercase">
-                    What Clients Say
-                </p>
-                <h2 className="text-3xl font-bold md:text-4xl">Testimonial</h2>
-            </div>
-
+            <SectionHeader title="Testimonial" subtitle="What Clients Say" />
             <ComingSoon
                 title="Testimonials Coming Soon"
                 message="Great things take time! Soon you will find words from colleagues, mentors, and collaborators sharing their experiences working with me — real voices, real impact."
