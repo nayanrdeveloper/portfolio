@@ -6,7 +6,6 @@ import { PortfolioModal } from './ProjectModal';
 import { SectionHeader } from '@/components/common/SectionHeader';
 import { getProjectCards } from '@/lib/hygraph/projects';
 
-
 export const PortfolioSection = () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [selectedProject, setSelectedProject] = useState<any>(null);
