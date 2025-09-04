@@ -1,18 +1,35 @@
 'use client';
 
 import Image from 'next/image';
+import { Card, CardHeader } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardHeader, CardContent } from '@/components/ui/card';
+import { Experience } from '@/constant/experience';
 
-interface ExperienceCardProps {
-    role: string;
-    title: string;
-    company: string;
-    duration: string;
-    image: string;
-}
+type Props = Experience & {
+    onMore: (exp: Experience) => void;
+};
 
-export const ExperienceCard = ({ role, title, company, duration, image }: ExperienceCardProps) => {
+export const ExperienceCard = ({
+    role,
+    title,
+    company,
+    duration,
+    image,
+    companyUrl,
+    onMore,
+    ...rest
+}: Props) => {
+    const exp: Experience = {
+        role,
+        title,
+        company,
+        duration,
+        image,
+        companyUrl,
+        ...rest,
+    } as Experience;
+
     return (
         <Card className="bg-background mx-auto flex w-full max-w-4xl flex-col gap-6 p-4 md:flex-row md:p-6">
             <div className="relative h-[200px] w-full overflow-hidden rounded-lg md:h-auto md:w-[220px]">
@@ -21,19 +38,27 @@ export const ExperienceCard = ({ role, title, company, duration, image }: Experi
 
             <div className="flex flex-1 flex-col justify-between gap-4">
                 <CardHeader className="space-y-2 p-0">
-                    <span className="bg-primary text-primary-foreground inline-block w-fit rounded-full px-3 py-1 text-xs font-medium">
-                        {duration}
-                    </span>
+                    <Badge className="bg-pink-600 hover:bg-pink-700">{duration}</Badge>
                     <h3 className="text-lg font-semibold sm:text-xl">{title}</h3>
                     <p className="text-muted-foreground text-sm sm:text-base">{role}</p>
                     <p className="text-muted-foreground text-sm">{company}</p>
                 </CardHeader>
 
-                <CardContent className="p-0 pt-2">
-                    <Button variant="secondary" size="sm">
-                        Contact Me
+                <div className="flex gap-3 pt-2">
+                    <Button variant="secondary" onClick={() => onMore(exp)}>
+                        More details
                     </Button>
-                </CardContent>
+                    {companyUrl && (
+                        <a
+                            href={companyUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex"
+                        >
+                            <Button variant="outline">Company page</Button>
+                        </a>
+                    )}
+                </div>
             </div>
         </Card>
     );

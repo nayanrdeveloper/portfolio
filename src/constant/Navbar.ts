@@ -5,7 +5,7 @@ export const NAVBAR_LINKS = [
     { label: 'Education', href: '#education' },
     { label: 'Resume', href: '#resume' },
     { label: 'Portfolio', href: '#portfolio' },
-    { label: 'Blog', href: '#blog' },
+    // { label: 'Blog', href: '#blog' },
     { label: 'Contacts', href: '#contact' },
 ];
 

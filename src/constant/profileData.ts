@@ -5,7 +5,7 @@ const profileDetails = {
     location: 'Bengaluru, India',
     role: 'Frontend Developer @ In Time Tec',
     description:
-        'Crafting fast, accessible, and scalable web apps using React, Next.js, and modern frontend tech. Passionate about UI engineering, performance, and clean code.',
+        'I craft fast, accessible, and scalable web apps using React, Next.js, and modern frontend tech. Passionate about UI engineering, performance, and clean, reusable code.',
     skills: [
         'React.js · Next.js · TypeScript',
         'Redux Toolkit · Tailwind CSS · CI/CD',

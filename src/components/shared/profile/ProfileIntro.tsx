@@ -4,9 +4,10 @@ import { motion } from 'framer-motion';
 import { profileDetails } from '@/constant/profileData';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Mail, MapPin, FileText, User } from 'lucide-react';
+import { Mail, MapPin, FileText, User, ExternalLink } from 'lucide-react';
 import { useState } from 'react';
 import { ProfileModal } from './ProfileModal';
+import Link from 'next/link';
 
 export const ProfileIntro = () => {
     const [open, setOpen] = useState(false);
@@ -22,12 +23,14 @@ export const ProfileIntro = () => {
             >
                 <Card className="bg-background flex flex-col shadow-md">
                     <CardContent className="space-y-5 p-6">
-                        <div className="bg-primary/20 flex h-10 w-10 items-center justify-center rounded-full">
-                            <User className="text-primary" size={18} />
+                        <div className="flex space-x-3">
+                            <div className="bg-primary/20 flex h-10 w-10 items-center justify-center rounded-full">
+                                <User className="text-primary" size={18} />
+                            </div>
+                            <h1 className="text-3xl leading-snug font-bold">
+                                Hi, I’m <span className="text-primary">{name}</span>
+                            </h1>
                         </div>
-                        <h1 className="text-3xl leading-snug font-bold">
-                            Hi, I’m <span className="text-primary">{name}</span>
-                        </h1>
                         <p className="text-muted-foreground">{description}</p>
 
                         <div className="text-foreground space-y-2 text-sm">
@@ -48,7 +51,15 @@ export const ProfileIntro = () => {
                         <div className="mt-6">
                             <p className="mb-2 text-sm">Download my curriculum vitae:</p>
                             <div className="flex gap-4">
-                                <Button variant="default">Download CV</Button>
+                                <Link
+                                    href="https://drive.google.com/file/d/1ztSfpnP3XyJZ5XUS10p9dBMTYiAe7yjD/view?usp=sharing"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <Button variant="default" className="gap-2">
+                                        Download CV <ExternalLink className="h-4 w-4" />
+                                    </Button>
+                                </Link>
                                 <Button variant="secondary">Contact Me</Button>
                                 <Button
                                     variant="outline"

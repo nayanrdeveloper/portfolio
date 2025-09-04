@@ -13,9 +13,9 @@ export default function Home() {
             <WelcomeToast />
             <ProfileCard />
             <ExperienceSection />
-            <EducationSection />
             <ResumeSection />
             <PortfolioSection />
+            <EducationSection />
             <TestimonialSection />
             <ContactSection />
         </section>

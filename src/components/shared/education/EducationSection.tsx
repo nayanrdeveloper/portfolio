@@ -19,7 +19,7 @@ const educationData = [
 
 export const EducationSection = () => {
     return (
-        <section className="space-y-10 py-12">
+        <section className="space-y-10 py-12" id="education">
             <div className="text-center">
                 <p className="text-primary text-sm font-semibold tracking-wide uppercase">
                     Master and Bachelor

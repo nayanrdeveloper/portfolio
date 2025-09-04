@@ -16,7 +16,7 @@ export const PortfolioSection = () => {
     }, []);
 
     return (
-        <section className="py-16">
+        <section className="py-16" id="portfolio">
             <div className="mx-auto max-w-5xl px-4">
                 <SectionHeader
                     title="My Portfolio"
