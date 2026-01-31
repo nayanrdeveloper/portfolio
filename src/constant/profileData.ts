@@ -2,10 +2,16 @@ const profileDetails = {
     name: 'Nayan Radadiya',
     title: 'Frontend Developer • React & TypeScript Specialist',
     email: 'nayanrdeveloper@gmail.com',
+    phone: '+91 8866656237',
     location: 'Bengaluru, India',
     role: 'Frontend Developer @ In Time Tec',
     description:
         'I craft fast, accessible, and scalable web apps using React, Next.js, and modern frontend tech. Passionate about UI engineering, performance, and clean, reusable code.',
+    socials: {
+        linkedin: 'https://www.linkedin.com/in/nayanradadiya/',
+        github: 'https://github.com/nayanrdeveloper',
+        twitter: 'https://x.com/nayan_radadiya6',
+    },
     skills: [
         'React.js · Next.js · TypeScript',
         'Redux Toolkit · Tailwind CSS · CI/CD',

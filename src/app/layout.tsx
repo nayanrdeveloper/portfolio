@@ -8,8 +8,48 @@ import { Toaster } from '@/components/ui/sonner'; // from ShadCN setu
 import { CustomCursor } from '@/components/common/CustomCursor';
 
 export const metadata: Metadata = {
-    title: 'Portfolio | Nayan',
-    description: 'My personal portfolio site built with Next.js 15',
+    title: 'Nayan Radadiya | Frontend Developer',
+    description:
+        'Frontend Developer specializing in React, Next.js, and TypeScript. Building fast, accessible, and scalable web applications.',
+    keywords: [
+        'Frontend Developer',
+        'React Developer',
+        'Next.js Developer',
+        'TypeScript',
+        'Web Development',
+        'Portfolio',
+        'Nayan Radadiya',
+    ],
+    authors: [{ name: 'Nayan Radadiya', url: 'https://nayan-portfolio.vercel.app' }],
+    creator: 'Nayan Radadiya',
+    openGraph: {
+        type: 'website',
+        locale: 'en_US',
+        url: 'https://nayan-portfolio.vercel.app',
+        title: 'Nayan Radadiya | Frontend Developer',
+        description:
+            'Frontend Developer specializing in React, Next.js, and TypeScript. Building fast, accessible, and scalable web applications.',
+        siteName: 'Nayan Radadiya Portfolio',
+        images: [
+            {
+                url: '/profile_pic2.jpg',
+                width: 1200,
+                height: 630,
+                alt: 'Nayan Radadiya - Frontend Developer',
+            },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Nayan Radadiya | Frontend Developer',
+        description:
+            'Frontend Developer specializing in React, Next.js, and TypeScript. Building fast, accessible, and scalable web applications.',
+        images: ['/profile_pic2.jpg'],
+        creator: '@nayan_radadiya6',
+    },
+    icons: {
+        icon: '/profile_pic2.jpg',
+    },
 };
 
 export default function RootLayout({

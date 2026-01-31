@@ -8,8 +8,17 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { NAVBAR_LINKS, SOCIAL_LINKS } from '@/constant/Navbar';
 
-export const MobileNav = () => {
+interface MobileNavProps {
+    onHireMeClick: () => void;
+}
+
+export const MobileNav = ({ onHireMeClick }: MobileNavProps) => {
     const [open, setOpen] = useState(false);
+
+    const handleHireMeClick = () => {
+        setOpen(false);
+        onHireMeClick();
+    };
 
     return (
         <div className="md:hidden">
@@ -64,8 +73,8 @@ export const MobileNav = () => {
                             </div>
                         </div>
 
-                        <Button className="mt-6 w-full" onClick={() => setOpen(false)}>
-                            Contact Me
+                        <Button className="mt-6 w-full" onClick={handleHireMeClick}>
+                            Hire Me
                         </Button>
                     </div>
                 </SheetContent>
