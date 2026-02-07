@@ -112,8 +112,8 @@ export const PortfolioModal = ({ isOpen, onClose, slug }: PortfolioModalProps) =
                                             ))}
                                         </CarouselContent>
 
-                                        <CarouselPrevious className="bg-background/90 absolute top-1/2 left-4 -translate-y-1/2 rounded-full shadow hover:bg-pink-600 hover:text-white" />
-                                        <CarouselNext className="bg-background/90 absolute top-1/2 right-4 -translate-y-1/2 rounded-full shadow hover:bg-pink-600 hover:text-white" />
+                                        <CarouselPrevious className="bg-background/90 hover:bg-primary absolute top-1/2 left-4 -translate-y-1/2 rounded-full shadow hover:text-white" />
+                                        <CarouselNext className="bg-background/90 hover:bg-primary absolute top-1/2 right-4 -translate-y-1/2 rounded-full shadow hover:text-white" />
                                     </Carousel>
                                 </div>
                             </div>
@@ -134,7 +134,7 @@ export const PortfolioModal = ({ isOpen, onClose, slug }: PortfolioModalProps) =
                                         {item.techStack.map((tech, i) => (
                                             <span
                                                 key={i}
-                                                className="rounded-full bg-pink-600 px-3 py-1 text-xs font-medium text-white"
+                                                className="bg-primary rounded-full px-3 py-1 text-xs font-medium text-white"
                                             >
                                                 {tech}
                                             </span>
@@ -146,7 +146,7 @@ export const PortfolioModal = ({ isOpen, onClose, slug }: PortfolioModalProps) =
                                 <div className="flex flex-wrap items-center gap-4 pt-1">
                                     <Button
                                         onClick={() => setLikes((p) => p + 1)}
-                                        className="gap-2 bg-pink-600 text-white hover:bg-pink-700"
+                                        className="bg-primary gap-2 text-white hover:bg-pink-700"
                                     >
                                         LIKE THIS <ThumbsUp className="h-4 w-4" /> {likes}
                                     </Button>

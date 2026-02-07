@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
             { protocol: 'https', hostname: 'ap-south-1.graphassets.com' },
             { protocol: 'https', hostname: 'media.graphassets.com' },
             { protocol: 'https', hostname: 'ap-south-1.cdn.hygraph.com' },
+            { protocol: 'https', hostname: 'images.unsplash.com' },
         ],
     },
     /* config options here */

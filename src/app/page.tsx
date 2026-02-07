@@ -1,4 +1,5 @@
 import { WelcomeToast } from '@/components/common/WelcomeToast';
+import { BlogSection } from '@/components/shared/blog/BlogSection';
 import { ContactSection } from '@/components/shared/contact';
 import { EducationSection } from '@/components/shared/education/EducationSection';
 import { ExperienceSection } from '@/components/shared/experience/ExperienceSection';
@@ -16,6 +17,7 @@ export default function Home() {
             <ResumeSection />
             <PortfolioSection />
             <EducationSection />
+            <BlogSection />
             <TestimonialSection />
             <ContactSection />
         </section>

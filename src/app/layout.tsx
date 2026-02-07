@@ -74,7 +74,7 @@ export default function RootLayout({
                                 toast: 'border border-pink-500 bg-background shadow-md text-foreground',
                                 title: 'text-pink-600 font-semibold',
                                 description: 'text-sm text-muted-foreground',
-                                actionButton: 'bg-pink-500 text-white hover:bg-pink-600',
+                                actionButton: 'bg-pink-500 text-white hover:bg-primary',
                                 cancelButton: 'text-muted',
                             },
                         }}

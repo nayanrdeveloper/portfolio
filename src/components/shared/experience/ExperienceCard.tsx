@@ -38,7 +38,7 @@ export const ExperienceCard = ({
 
             <div className="flex flex-1 flex-col justify-between gap-4">
                 <CardHeader className="space-y-2 p-0">
-                    <Badge className="bg-pink-600 hover:bg-pink-700">{duration}</Badge>
+                    <Badge className="bg-primary hover:bg-pink-700">{duration}</Badge>
                     <h3 className="text-lg font-semibold sm:text-xl">{title}</h3>
                     <p className="text-muted-foreground text-sm sm:text-base">{role}</p>
                     <p className="text-muted-foreground text-sm">{company}</p>

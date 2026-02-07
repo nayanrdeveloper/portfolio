@@ -22,7 +22,7 @@ export function ExperienceDetailsModal({ open, onClose, exp }: Props) {
                 {/* Header */}
                 <div className="flex items-start justify-between px-6 pt-6">
                     <div className="space-y-2">
-                        <Badge variant="default" className="bg-pink-600 hover:bg-pink-700">
+                        <Badge variant="default" className="bg-primary hover:bg-pink-700">
                             {exp.duration}
                         </Badge>
                         <DialogTitle className="text-2xl font-bold">{exp.title}</DialogTitle>
@@ -62,7 +62,7 @@ export function ExperienceDetailsModal({ open, onClose, exp }: Props) {
                                 <Button variant="secondary">Visit Company Page</Button>
                             </a>
                         )}
-                        <Button onClick={onClose} className="bg-pink-600 hover:bg-pink-700">
+                        <Button onClick={onClose} className="bg-primary hover:bg-pink-700">
                             Close
                         </Button>
                     </div>

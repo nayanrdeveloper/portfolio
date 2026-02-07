@@ -18,14 +18,14 @@ export const HireMeModal = ({ isOpen, onClose }: HireMeModalProps) => {
                 <div className="absolute top-4 right-4">
                     <button
                         onClick={onClose}
-                        className="rounded-full p-1 transition hover:bg-muted"
+                        className="hover:bg-muted rounded-full p-1 transition"
                     >
                         <X className="h-4 w-4" />
                     </button>
                 </div>
 
                 <DialogHeader className="flex flex-col items-center gap-2">
-                    <div className="relative h-20 w-20 overflow-hidden rounded-full border-2 border-primary">
+                    <div className="border-primary relative h-20 w-20 overflow-hidden rounded-full border-2">
                         <Image
                             src="/profile_pic2.jpg"
                             alt={profileDetails.name}
@@ -34,19 +34,22 @@ export const HireMeModal = ({ isOpen, onClose }: HireMeModalProps) => {
                         />
                     </div>
                     <DialogTitle className="text-xl font-bold">Hire Me</DialogTitle>
-                    <p className="text-center text-sm text-muted-foreground">
+                    <p className="text-muted-foreground text-center text-sm">
                         {profileDetails.description}
                     </p>
                 </DialogHeader>
 
                 <div className="grid gap-4 py-4">
                     <div className="flex items-center gap-3 rounded-lg border p-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+                        <div className="bg-primary/10 text-primary flex h-10 w-10 items-center justify-center rounded-full">
                             <Mail className="h-5 w-5" />
                         </div>
                         <div className="flex flex-col">
-                            <span className="text-xs text-muted-foreground">Email</span>
-                            <a href={`mailto:${profileDetails.email}`} className="text-sm font-medium hover:text-primary">
+                            <span className="text-muted-foreground text-xs">Email</span>
+                            <a
+                                href={`mailto:${profileDetails.email}`}
+                                className="hover:text-primary text-sm font-medium"
+                            >
                                 {profileDetails.email}
                             </a>
                         </div>
@@ -54,12 +57,15 @@ export const HireMeModal = ({ isOpen, onClose }: HireMeModalProps) => {
 
                     {profileDetails.phone && (
                         <div className="flex items-center gap-3 rounded-lg border p-3">
-                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+                            <div className="bg-primary/10 text-primary flex h-10 w-10 items-center justify-center rounded-full">
                                 <Phone className="h-5 w-5" />
                             </div>
                             <div className="flex flex-col">
-                                <span className="text-xs text-muted-foreground">Phone</span>
-                                <a href={`tel:${profileDetails.phone}`} className="text-sm font-medium hover:text-primary">
+                                <span className="text-muted-foreground text-xs">Phone</span>
+                                <a
+                                    href={`tel:${profileDetails.phone}`}
+                                    className="hover:text-primary text-sm font-medium"
+                                >
                                     {profileDetails.phone}
                                 </a>
                             </div>
@@ -72,7 +78,7 @@ export const HireMeModal = ({ isOpen, onClose }: HireMeModalProps) => {
                                 href={profileDetails.socials.github}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex h-10 w-10 items-center justify-center rounded-full bg-muted transition hover:bg-primary hover:text-white"
+                                className="bg-muted hover:bg-primary flex h-10 w-10 items-center justify-center rounded-full transition hover:text-white"
                                 aria-label="GitHub"
                             >
                                 <Github className="h-5 w-5" />
@@ -83,7 +89,7 @@ export const HireMeModal = ({ isOpen, onClose }: HireMeModalProps) => {
                                 href={profileDetails.socials.linkedin}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex h-10 w-10 items-center justify-center rounded-full bg-muted transition hover:bg-primary hover:text-white"
+                                className="bg-muted hover:bg-primary flex h-10 w-10 items-center justify-center rounded-full transition hover:text-white"
                                 aria-label="LinkedIn"
                             >
                                 <Linkedin className="h-5 w-5" />
@@ -94,7 +100,7 @@ export const HireMeModal = ({ isOpen, onClose }: HireMeModalProps) => {
                                 href={profileDetails.socials.twitter}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex h-10 w-10 items-center justify-center rounded-full bg-muted transition hover:bg-primary hover:text-white"
+                                className="bg-muted hover:bg-primary flex h-10 w-10 items-center justify-center rounded-full transition hover:text-white"
                                 aria-label="Twitter"
                             >
                                 <Twitter className="h-5 w-5" />

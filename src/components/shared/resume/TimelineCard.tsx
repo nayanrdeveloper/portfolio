@@ -22,7 +22,7 @@ export const TimelineCard = ({
             <p className="text-muted-foreground text-sm">{subtitle}</p>
             {description && <p className="text-muted-foreground mt-2 text-sm">{description}</p>}
             {badge && (
-                <span className="absolute top-4 right-4 rounded-md bg-pink-600 px-3 py-1 text-xs text-white">
+                <span className="bg-primary absolute top-4 right-4 rounded-md px-3 py-1 text-xs text-white">
                     {badge}
                 </span>
             )}
