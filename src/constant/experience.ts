@@ -21,10 +21,10 @@ export const EXPERIENCES: Experience[] = [
         location: 'Bengaluru, India',
         companyUrl: 'https://www.intimetec.com', // update if needed
         highlights: [
-            'Refactored legacy data layer using RTK Query; reduced redundant calls and improved fetch performance by ~30%.',
-            'Integrated i18n to enable multi-language support for a global user base.',
-            'Contributed to production releases, triaged critical bugs, and shipped in an Agile team using JIRA.',
-            'Built reusable, responsive React components with TypeScript to improve UI consistency and DX.',
+            'Refactored legacy data-fetching logic by migrating to RTK Query, eliminating redundant API calls and improving data-fetch performance by 30%; added Jest-based unit tests for critical UI components, reducing regression issues.',
+            'Designed and standardized reusable, responsive React components using TypeScript and Bootstrap, ensuring WCAG-aligned accessibility (ARIA roles, keyboard navigation) and consistent developer experience across features.',
+            'Implemented RESTful backend services with Node.js and Express, including JWT-based authentication and Cloudinary integration for secure media uploads and structured content delivery.',
+            'Applied scalable state management using Redux Toolkit and Context API, improving data consistency, maintainability, and feature extensibility across the application.',
         ],
     },
     {
@@ -37,8 +37,8 @@ export const EXPERIENCES: Experience[] = [
         location: 'Rajkot, Gujarat',
         companyUrl: undefined, // add a real URL if you have it
         highlights: [
-            'Designed and developed a responsive landing experience using Tailwind CSS.',
-            'Built interactive dashboard charts with Chart.js and optimized API integration.',
+            'Built and optimized responsive landing and dashboard experiences using Tailwind CSS, achieving 15-20% improvement in Core Web Vitals (Lighthouse) and improving mobile usability and SEO readiness.',
+            'Developed interactive dashboards using Chart.js, improving data visualization clarity and reducing UI latency through optimized rendering and API handling.',
             'Implemented RESTful API endpoints with Node.js + Express.js to improve data flow and performance.',
         ],
     },

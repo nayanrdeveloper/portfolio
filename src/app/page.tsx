@@ -3,6 +3,7 @@ import { BlogSection } from '@/components/shared/blog/BlogSection';
 import { ContactSection } from '@/components/shared/contact';
 import { EducationSection } from '@/components/shared/education/EducationSection';
 import { ExperienceSection } from '@/components/shared/experience/ExperienceSection';
+import { LinkedInSection } from '@/components/shared/linkedin/LinkedInSection';
 import { PortfolioSection } from '@/components/shared/portfolio/PortfolioSection';
 import { ProfileCard } from '@/components/shared/profile/ProfileCard';
 import { ResumeSection } from '@/components/shared/resume/ResumeSection';
@@ -17,7 +18,8 @@ export default function Home() {
             <ResumeSection />
             <PortfolioSection />
             <EducationSection />
-            <BlogSection />
+            <BlogSection limit={6} />
+            <LinkedInSection limit={6} />
             <TestimonialSection />
             <ContactSection />
         </section>
