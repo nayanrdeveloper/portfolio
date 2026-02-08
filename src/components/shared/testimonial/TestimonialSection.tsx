@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import {
     Carousel,
     CarouselContent,
@@ -8,84 +9,89 @@ import {
     CarouselPrevious,
 } from '@/components/ui/carousel';
 import { TestimonialCard } from './TestimonialCard';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
-import { ComingSoon } from '@/components/common/ComingSoon';
+import { ArrowLeft, ArrowRight, Loader2 } from 'lucide-react';
 import { SectionHeader } from '@/components/common/SectionHeader';
+import { getTestimonials, HygraphTestimonial } from '@/lib/hygraph/testimonials';
+import { ComingSoon } from '@/components/common/ComingSoon';
 
-const testimonials = [
-    {
-        title: 'Android App Development',
-        date: 'via Upwork – Mar 4, 2015 – Aug 30, 2021',
-        description:
-            'Maecenas finibus nec sem ut imperdiet. Ut tincidunt est ac dolor aliquam sodales.',
-        name: 'Nevine Acotanza',
-        rating: 5,
-    },
-    {
-        title: 'Web Design Project',
-        date: 'via Freelancer – Jan 10, 2023 – Feb 12, 2023',
-        description: 'Very satisfied with the outcome. Professional, timely, and reliable service.',
-        name: 'Rahul Mishra',
-        rating: 4,
-    },
-    {
-        title: 'Android App Development',
-        date: 'via Upwork – Mar 4, 2015 – Aug 30, 2021',
-        description:
-            'Maecenas finibus nec sem ut imperdiet. Ut tincidunt est ac dolor aliquam sodales.',
-        name: 'Nevine Acotanza',
-        rating: 5,
-    },
-    {
-        title: 'Web Design Project',
-        date: 'via Freelancer – Jan 10, 2023 – Feb 12, 2023',
-        description: 'Very satisfied with the outcome. Professional, timely, and reliable service.',
-        name: 'Rahul Mishra',
-        rating: 4,
-    },
-    {
-        title: 'Android App Development',
-        date: 'via Upwork – Mar 4, 2015 – Aug 30, 2021',
-        description:
-            'Maecenas finibus nec sem ut imperdiet. Ut tincidunt est ac dolor aliquam sodales.',
-        name: 'Nevine Acotanza',
-        rating: 5,
-    },
-    {
-        title: 'Web Design Project',
-        date: 'via Freelancer – Jan 10, 2023 – Feb 12, 2023',
-        description: 'Very satisfied with the outcome. Professional, timely, and reliable service.',
-        name: 'Rahul Mishra',
-        rating: 4,
-    },
-];
+import { TestimonialModal } from './TestimonialModal';
 
 export const TestimonialSection = () => {
+    const [testimonials, setTestimonials] = useState<HygraphTestimonial[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        getTestimonials()
+            .then((data) => {
+                setTestimonials(data);
+                setLoading(false);
+            })
+            .catch((error) => {
+                console.error('Failed to fetch testimonials:', error);
+                setLoading(false);
+            });
+    }, []);
+
+    if (loading) {
+        return (
+            <section className="py-10 md:py-16 lg:py-20">
+                <SectionHeader title="Testimonial" subtitle="What Clients Say" />
+                <div className="flex h-40 items-center justify-center">
+                    <Loader2 className="text-primary h-8 w-8 animate-spin" />
+                </div>
+            </section>
+        );
+    }
+
+    // Fallback if no testimonials found
+    if (testimonials.length === 0) {
+        return (
+            <section className="py-10 md:py-16 lg:py-20">
+                <SectionHeader title="Testimonial" subtitle="What Clients Say" />
+                <ComingSoon
+                    title="Testimonials Coming Soon"
+                    message="Great things take time! Soon you will find words from colleagues, mentors, and collaborators sharing their experiences working with me — real voices, real impact."
+                />
+            </section>
+        );
+    }
+
     return (
         <section className="py-10 md:py-16 lg:py-20">
-            <SectionHeader title="Testimonial" subtitle="What Clients Say" />
-            <ComingSoon
-                title="Testimonials Coming Soon"
-                message="Great things take time! Soon you will find words from colleagues, mentors, and collaborators sharing their experiences working with me — real voices, real impact."
-            />
-            {/* <div className="relative mx-auto w-full max-w-5xl">
-                <Carousel className="w-full">
-                    <CarouselContent>
-                        {testimonials.map((testimonial, index) => (
-                            <CarouselItem key={index} className="px-4 md:basis-1/2 lg:basis-1/2">
-                                <TestimonialCard {...testimonial} />
+            <div className="flex flex-col items-center justify-between gap-4 md:flex-row md:px-12">
+                <SectionHeader
+                    title="Testimonial"
+                    subtitle="What Clients Say"
+                    className="md:text-left"
+                />
+                <TestimonialModal />
+            </div>
+
+            <div className="relative mx-auto w-full max-w-5xl px-12 md:px-0">
+                <Carousel
+                    className="w-full"
+                    opts={{
+                        align: 'start',
+                        loop: true,
+                    }}
+                >
+                    <CarouselContent className="-ml-4">
+                        {testimonials.map((testimonial) => (
+                            <CarouselItem
+                                key={testimonial.id}
+                                className="pl-4 md:basis-1/2 lg:basis-1/2"
+                            >
+                                <div className="h-full p-1">
+                                    <TestimonialCard testimonial={testimonial} />
+                                </div>
                             </CarouselItem>
                         ))}
                     </CarouselContent>
 
-                    <CarouselPrevious className="bg-background card-shadow absolute top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-md transition hover:scale-105">
-                        <ArrowLeft className="h-5 w-5 text-pink-500" />
-                    </CarouselPrevious>
-                    <CarouselNext className="bg-background card-shadow absolute top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-md transition hover:scale-105">
-                        <ArrowRight className="h-5 w-5 text-pink-500" />
-                    </CarouselNext>
+                    <CarouselPrevious className="bg-background card-shadow absolute top-1/2 -left-4 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-md border-none transition hover:scale-105 md:-left-12" />
+                    <CarouselNext className="bg-background card-shadow absolute top-1/2 -right-4 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-md border-none transition hover:scale-105 md:-right-12" />
                 </Carousel>
-            </div> */}
+            </div>
         </section>
     );
 };
